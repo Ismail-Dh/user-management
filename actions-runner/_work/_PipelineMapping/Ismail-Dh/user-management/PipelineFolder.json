@@ -1,0 +1,12 @@
+﻿{
+  "repositoryName": "Ismail-Dh/user-management",
+  "pipelineDirectory": "user-management",
+  "workspaceDirectory": "user-management\\user-management",
+  "repositories": {
+    "Ismail-Dh/user-management": {
+      "repositoryPath": "user-management\\user-management",
+      "lastRunOn": "12/14/2025 23:53:41 +01:00"
+    }
+  },
+  "lastRunOn": "12/14/2025 23:53:41 +01:00"
+}

@@ -1,0 +1,11 @@
+﻿{
+  "agentId": 2,
+  "agentName": "LAPTOP-6827QRCJ",
+  "poolId": 1,
+  "poolName": "Default",
+  "serverUrl": "https://pipelinesghubeus22.actions.githubusercontent.com/VCYmLaN4JERfWeNZ3P8fTQ1jBevWu937wyLXLTMgaAXG1gkVPp/",
+  "gitHubUrl": "https://github.com/Ismail-Dh/user-management",
+  "workFolder": "_work",
+  "useV2Flow": true,
+  "serverUrlV2": "https://broker.actions.githubusercontent.com/"
+}
