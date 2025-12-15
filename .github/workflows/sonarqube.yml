@@ -12,7 +12,7 @@ jobs:
       # 1️⃣ Checkout du code
       - uses: actions/checkout@v4
         with:
-          submodules: false   # Désactive les sous-modules pour éviter les erreurs
+          submodules: false   # Désactive les sous-modules
 
       # 2️⃣ Setup JDK 21
       - name: Set up JDK 21
@@ -21,15 +21,7 @@ jobs:
           java-version: 21
           distribution: zulu
 
-      # 3️⃣ Start SonarQube in Docker
-      - name: Start SonarQube Docker
-        shell: powershell
-        run: |
-          docker pull sonarqube:10.1-community
-          docker run -d --name sonarqube-ci -p 9000:9000 sonarqube:10.1-community
-          Start-Sleep -Seconds 60  # Attendre que SonarQube démarre
-
-      # 4️⃣ Build & SonarQube Analysis
+      # 3️⃣ Build & SonarQube Analysis
       - name: Build & SonarQube Analysis
         shell: powershell
         env:
@@ -42,10 +34,3 @@ jobs:
             -Dsonar.projectKey=TP_SonarQube `
             -Dsonar.host.url=$sonarUrl `
             -Dsonar.login=$sonarToken
-
-      # 5️⃣ Stop SonarQube Docker
-      - name: Stop SonarQube Docker
-        shell: powershell
-        run: |
-          docker stop sonarqube-ci
-          docker rm sonarqube-ci
