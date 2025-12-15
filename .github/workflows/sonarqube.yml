@@ -12,7 +12,7 @@ jobs:
       # 1️⃣ Checkout du code
       - uses: actions/checkout@v4
         with:
-          submodules: false   # Désactive les sous-modules
+          submodules: false   # Désactive les sous-modules pour éviter les erreurs
 
       # 2️⃣ Setup JDK 21
       - name: Set up JDK 21
@@ -28,9 +28,13 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: http://localhost:9000
         run: |
+          # Débogage : afficher l'URL utilisée
           $sonarUrl = $env:SONAR_HOST_URL
           $sonarToken = $env:SONAR_TOKEN
+          Write-Host "Using SonarQube URL: $sonarUrl"
+
+          # Lancer Maven avec les options correctement évaluées
           mvn clean verify sonar:sonar `
             -Dsonar.projectKey=TP_SonarQube `
-            -Dsonar.host.url=$sonarUrl `
-            -Dsonar.login=$sonarToken
+            -D"sonar.host.url=$sonarUrl" `
+            -D"sonar.login=$sonarToken"
