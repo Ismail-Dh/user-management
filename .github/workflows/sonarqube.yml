@@ -20,7 +20,7 @@ jobs:
           distribution: zulu
 
       - name: Build & SonarQube Analysis
-        shell: pwsh
+        shell: powershell
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
