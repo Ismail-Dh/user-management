@@ -26,7 +26,7 @@ jobs:
         shell: powershell
         run: |
           docker pull sonarqube:10.1-community
-          docker run -d --name sonarqube -p 9000:9000 sonarqube:10.1-community
+          docker run -d --name sonarqube-ci -p 9000:9000 sonarqube:10.1-community
           Start-Sleep -Seconds 60  # Attendre que SonarQube démarre
 
       # 4️⃣ Build & SonarQube Analysis
@@ -47,5 +47,5 @@ jobs:
       - name: Stop SonarQube Docker
         shell: powershell
         run: |
-          docker stop sonarqube
-          docker rm sonarqube
+          docker stop sonarqube-ci
+          docker rm sonarqube-ci
